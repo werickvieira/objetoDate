@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Objeto Date . Beta</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,300' rel='stylesheet'>
+
+	<style type="text/css">
+
+     .container { 
+
+      max-width: 400px;
+      height: 300px;
+      margin: 100px auto;
+      text-align: center;
+      transition: all 0.8s;
+     -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -ms-transition: all 0.8s;
+
+     }
+
+     .container > h1, h2 {
+
+      font-family: "open sans";
+      font-size: 30px;
+      font-weight: 300;
+      color: #fff;
+
+      transition: all 0.5s;
+      -webkit-transition:all 0.6s;
+         -moz-transition:all 0,6s;
+     
+
+     }
+     
+
+
+	</style>
+
+</head>
+<body>
+
+
+
+<div class="container">
+	
+  <h1 class="time"></h1>
+  <h2 class="hexa_decimal"></h2>
+
+
+
+</div><!-- container -->
+
+	
+</body>
+
+
+<script type="text/javascript">
+	
+(function(){
+
+
+   var whatColor = function() {
+
+
+      var d = new Date(); // cria um objeto do tipo Date;
+
+      var horas    = d.getHours();
+      var minutos  = d.getMinutes();
+      var segundos = d.getSeconds();
+
+       if( horas < 10 ) {
+
+           horas = '0' + horas;
+
+       } 
+
+       if ( minutos < 10 ) {
+
+       	   minutos = '0' + minutos;
+       }
+
+
+       if ( segundos < 10 ) {
+
+       	   segundos = '0' + segundos;
+
+       }
+
+             horas.toString(); // converte o número para String;
+           minutos.toString();
+          segundos.toString();
+
+    
+    var hexa = '#' + horas + minutos + segundos; // Faz um hexadecimal com os valores obtidos 
+
+    document.querySelector(".time").innerHTML = horas + ' : ' + minutos + ' : ' + segundos;
+    document.querySelector(".hexa_decimal").innerHTML = hexa;
+
+    document.body.style.background = hexa;
+
+
+  //  setTimeout(whatColor, 1000); // executa uma função a cada 1 segundo
+
+         
+  }; // função whatColor 
+
+
+
+      whatColor();
+
+    setInterval(whatColor, 1000); // executa uma função a cada 1 segundo
+
+
+
+}()); // () necessário para executar a função.
+
+
+</script>
+
+
+
+</html>
